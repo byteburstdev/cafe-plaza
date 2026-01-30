@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans bg-amber-50 text-amber-900;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+  
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #8B4513 #FAEBD7;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #FAEBD7;
+    border: 1px solid #D2691E;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: #8B4513;
+    border-radius: 4px;
+    border: 2px solid #A0522D;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background: #A0522D;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background: #8B4513;
+    color: #FFF8F0;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 3px solid #654321;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.6);
+    background: #A0522D;
+  }
+  
+  .btn-secondary {
+    background: #FFF8F0;
+    color: #8B4513;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
+    border: 3px solid #8B4513;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+  }
+  
+  .btn-secondary:hover {
+    background: #FAEBD7;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.5);
+  }
+  
+  .section-padding {
+    padding: 5rem 1rem;
+  }
+  
+  .container-custom {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+  
+  .card {
+    background: linear-gradient(to bottom, #FFF8F0 0%, #FAEBD7 100%);
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.2);
+    padding: 2rem;
+    border: 3px solid #8B4513;
+    border-bottom: 5px solid #654321;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 30px rgba(139, 69, 19, 0.3);
+    border-color: #A0522D;
+    transform: translateY(-4px);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #A0522D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.85) 0%, rgba(160, 82, 45, 0.8) 100%);
+  }
+  
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+}
