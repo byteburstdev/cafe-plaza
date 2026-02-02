@@ -1,0 +1,56 @@
+---
+interface ToggleOption {
+	title: string;
+	price: string;
+	image: string;
+	ingredients: string[];
+}
+
+interface Props {
+	name: string;
+	image: string;
+	toggleOptions: {
+		[key: string]: ToggleOption;
+	};
+}
+
+const { name, image, toggleOptions } = Astro.props;
+const firstOption = Object.keys(toggleOptions)[0];
+const firstData = toggleOptions[firstOption];
+---
+
+<div class="menu-item">
+	<div 
+		class="menu-card-toggle" 
+		data-toggle-item 
+		data-auto-toggle="true" 
+		data-item-name={name}
+		data-current-option={Object.keys(toggleOptions)[0]}
+		data-toggle-options={JSON.stringify(toggleOptions)}
+	>
+		<div class="card-image-wrapper">
+			<img 
+				src={firstData.image} 
+				alt={firstData.title}
+				class="card-image"
+				data-card-image
+			/>
+		</div>
+		<div class="menu-overlay-content">
+			<h3 class="menu-title-overlay" data-title>{firstData.title}</h3>
+			<span class="menu-price-overlay" data-price>{firstData.price}</span>
+			<button class="toggle-button" data-toggle-btn>
+				{Object.keys(toggleOptions).map((key, index) => (
+					<>
+						<span class={`toggle-option ${index === 0 ? 'active' : ''}`} data-option={key}>
+							{key.charAt(0).toUpperCase() + key.slice(1)}
+						</span>
+						{index < Object.keys(toggleOptions).length - 1 && (
+							<span class="toggle-divider">|</span>
+						)}
+					</>
+				))}
+			</button>
+		</div>
+	</div>
+</div>

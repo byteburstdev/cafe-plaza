@@ -1,0 +1,27 @@
+---
+interface Props {
+	name: string;
+	price: string;
+	image: string;
+	ingredients: string[];
+}
+
+const { name, price, image, ingredients } = Astro.props;
+---
+
+<div class="menu-item">
+	<div 
+		class="menu-card-overlay" 
+		style={`background-image: url('${image}');`} 
+		data-card
+		data-name={name}
+		data-price={price}
+		data-image={image}
+		data-ingredients={JSON.stringify(ingredients)}
+	>
+		<div class="menu-overlay-content">
+			<h3 class="menu-title-overlay">{name}</h3>
+			<span class="menu-price-overlay">{price}</span>
+		</div>
+	</div>
+</div>

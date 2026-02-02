@@ -1,0 +1,76 @@
+/* Toggle Button Styles */
+.toggle-button {
+	@apply flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold;
+	background: rgba(255, 248, 240, 0.95);
+	border: 2px solid #D2691E;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(4px);
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-family: 'Georgia', serif;
+	align-self: flex-start;
+	pointer-events: all;
+	z-index: 3;
+	position: relative;
+}
+
+.toggle-button:hover {
+	transform: scale(1.05);
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+	border-color: #8B4513;
+}
+
+.toggle-button:active {
+	transform: scale(0.98);
+}
+
+.toggle-option {
+	color: #8B4513;
+	transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	cursor: pointer;
+	padding: 4px 8px;
+	border-radius: 12px;
+	background: transparent;
+	position: relative;
+}
+
+.toggle-option.active {
+	color: #FFF8F0;
+	background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
+	font-weight: bold;
+	transform: scale(1.15);
+	box-shadow: 
+		0 2px 8px rgba(139, 69, 19, 0.5),
+		inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.toggle-option.active::before {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	border-radius: 14px;
+	background: linear-gradient(135deg, #D2691E, #8B4513);
+	z-index: -1;
+	opacity: 0.5;
+	animation: pulse-border 2s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+	0%, 100% {
+		transform: scale(1);
+		opacity: 0.5;
+	}
+	50% {
+		transform: scale(1.05);
+		opacity: 0.8;
+	}
+}
+
+.toggle-divider {
+	color: #D2691E;
+	font-weight: bold;
+	margin: 0 2px;
+}
